@@ -6,6 +6,7 @@ import { appwriteConfig } from "../appwrite/config"
 import { constructFileUrl, getFileType, parseStringify } from "../utils"
 import { revalidatePath } from "next/cache"
 import { getCurrentUser } from "./user.actions";
+import { log } from "console";
 
 const handleError = (error: unknown, message: string) => {
     console.log(error, message)
@@ -56,16 +57,20 @@ const createQueries = (currentUser: Models.Document, types:string[], searchText:
     if(types.length>0) queries.push(Query.equal('type',types))
     if(searchText) queries.push(Query.contains('name',searchText))
     if(limit) queries.push(Query.limit(limit))
-        
-    const [sortBy, orderBy] = sort.split('-')
-    queries.push(
-        orderBy==='asc' ? Query.orderAsc(sortBy) : Query.orderDesc(sortBy)
-    )
+    
+    if(sort){
+        const [sortBy, orderBy] = sort.split('-')
+        queries.push(
+            orderBy==='asc' ? Query.orderAsc(sortBy) : Query.orderDesc(sortBy)
+        )
+    }
 
     return queries
 }
 
 export const getFiles = async ({types=[], searchText='',sort='$createdAt-desc',limit}:GetFilesProps) => {
+    
+    console.log("Sort - " +sort);
     const {databases} = await createAdminCLient()
     try{
         const currentUser = await getCurrentUser()
