@@ -15,12 +15,10 @@ import {
     InputOTPSlot,
   } from "@/components/ui/input-otp"
 import Image from "next/image"
-import { useState } from "react"
+import React,{ useState } from "react"
 import { Button } from "./ui/button"
 import { useRouter } from "next/navigation"
 import { sendEmailOTP, verifySecret } from "@/lib/actions/user.actions"
-import  React from 'react'
-  
 
 const OTPModal = ({accountId, email}:{accountId: string, email: string}) => {    
     const router = useRouter()

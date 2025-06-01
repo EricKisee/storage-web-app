@@ -1,5 +1,4 @@
 import { cn, formatDateTime } from '@/lib/utils'
-import { Models } from 'node-appwrite'
 import React from 'react'
 
 const FormattedDateTime = ({date, className}: {date: string, className?: string}) => {
