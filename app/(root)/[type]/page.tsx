@@ -1,5 +1,6 @@
 import Card from '@/components/Card'
 import Sort from '@/components/Sort'
+import type { FileType, SearchParamProps } from '@/types';
 import { getFiles } from '@/lib/actions/file.actions'
 import { getFileTypesParams } from '@/lib/utils'
 import { Models } from 'node-appwrite'

@@ -6,7 +6,7 @@ import { appwriteConfig } from "../appwrite/config"
 import { constructFileUrl, getFileType, parseStringify } from "../utils"
 import { revalidatePath } from "next/cache"
 import { getCurrentUser } from "./user.actions";
-import { log } from "console";
+import { DeleteFileProps, GetFilesProps, RenameFileProps, UpdateFileUsersProps, UploadFileProps } from "@/types";
 
 const handleError = (error: unknown, message: string) => {
     console.log(error, message)

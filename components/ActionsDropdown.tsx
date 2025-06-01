@@ -26,6 +26,7 @@ import { Button } from "./ui/button"
 import { deleteFile, renameFile, updateFileUsers } from "@/lib/actions/file.actions"
 import { usePathname } from "next/navigation"
 import { FileDetails, ShareInput } from "./ActionModalContent"
+import { ActionType } from "@/types"
   
   
 
@@ -44,7 +45,7 @@ const ActionsDropdown = ({file} : {file:Models.Document}) => {
       setIsDropdownOpen(false)
       setAction(null)
       setName(file.name)
-      //setEmails([])
+      // setEmails([])
     }
 
     const handleAction = async () => {
@@ -115,7 +116,7 @@ const ActionsDropdown = ({file} : {file:Models.Document}) => {
                         setAction(actionItem)
                         if(['rename','share', 'delete','details'].includes(actionItem.value)){ 
                             setIsModalOpen(true) 
-                            //continue here : 3:39:52
+                            // continue here : 3:39:52
                             }
                         }}>
 
