@@ -30,7 +30,7 @@ import { ActionType } from "@/types"
   
   
 
-const ActionsDropdown = ({file} : {file:Models.Document}) => {
+export const ActionsDropdown = ({file} : {file:Models.Document}) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
