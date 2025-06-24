@@ -7,8 +7,14 @@ import { Toaster } from "@/components/ui/toaster"
 import React from "react"
 
 const Layout = async ({children} : {children: React.ReactNode}) => {
-    const currentUser = await getCurrentUser()
+ var currentUser;
+  try {
+     currentUser = await getCurrentUser()
     if (!currentUser) return redirect('/sign-in')
+  } catch (error) {
+    console.error("Error fetching current user:", error)
+    return redirect('/sign-in')
+  }
 
   return (
     <main className="flex h-screen">
